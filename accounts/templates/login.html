@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <link rel="stylesheet" href="{% static 'register-form.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        {% include "header.html" %}
+        <main class="page-content">
+            <h1 class="page-title">Login</h1>
+            <form class="register-form" method="post">
+                {% csrf_token %}
+                <div class="form-field">
+                    <label for="{{ login_form.username.id_for_label }}">Username</label>
+                    {{ login_form.username }}
+                    {% if login_form.username.errors %}
+                        <span class="field-error">{{ login_form.username.errors.0 }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-field">
+                    <label for="{{ login_form.password.id_for_label }}">Password</label>
+                    {{ login_form.password }}
+                    {% if login_form.password.errors %}
+                        <span class="field-error">{{ login_form.password.errors.0 }}</span>
+                    {% endif %}
+                </div>
+                <button class="button" type="submit">Login</button>
+            </form>
+        </main>
+        {% include "footer.html" %}
+    </body>
+</html>

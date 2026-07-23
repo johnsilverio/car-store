@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Register</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <link rel="stylesheet" href="{% static 'register-form.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        {% include "header.html" %}
+        <main class="page-content">
+            <h1 class="page-title">Register</h1>
+            <form class="register-form" method="post">
+                {% csrf_token %}
+                <div class="form-field">
+                    <label for="{{ user_form.username.id_for_label }}">Username</label>
+                    {{ user_form.username }}
+                    {% if user_form.username.errors %}
+                        <span class="field-error">{{ user_form.username.errors.0 }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-field">
+                    <label for="{{ user_form.password1.id_for_label }}">Password</label>
+                    {{ user_form.password1 }}
+                    {% if user_form.password1.errors %}
+                        <span class="field-error">{{ user_form.password1.errors.0 }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-field">
+                    <label for="{{ user_form.password2.id_for_label }}">Confirm password</label>
+                    {{ user_form.password2 }}
+                    {% if user_form.password2.errors %}
+                        <span class="field-error">{{ user_form.password2.errors.0 }}</span>
+                    {% endif %}
+                </div>
+                <button class="button" type="submit">Register</button>
+            </form>
+        </main>
+        {% include "footer.html" %}
+    </body>
+</html>

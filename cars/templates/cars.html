@@ -1,0 +1,59 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Car Store</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <link rel="stylesheet" href="{% static 'cars-list.css' %}" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        {% include "header.html" %}
+
+        <main class="page-content">
+            <form class="search-bar" method="get">
+                <input
+                    class="search-input"
+                    type="text"
+                    name="search"
+                    placeholder="Search by model or brand..."
+                    value="{{ request.GET.search|default:'' }}"
+                />
+                <button class="button" type="submit">Search</button>
+            </form>
+
+            <section class="car-list">
+                <div class="car-grid">
+                    {% for car in cars %}
+                    <div class="car-card">
+                        {% if car.photo %}
+                        <img src="{{ car.photo.url }}" alt="Car photo" />
+                        {% else %}
+                        <img
+                            src="https://www.motorsworld.co.uk/assets/no-image.jpg"
+                            alt="Car photo"
+                        />
+                        {% endif %}
+                        <div class="car-info">
+                            <h2>{{ car.model }}</h2>
+                            <p>Brand: {{ car.brand }}</p>
+                            <p>Model year: {{ car.model_year }}</p>
+                            <p class="car-value">R$ {{ car.value }}</p>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="empty-state">No cars found.</p>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+
+        {% include "footer.html" %}
+    </body>
+</html>
