@@ -15,7 +15,7 @@ def register_view(request: HttpRequest):
     return render(request, "register.html", {"user_form": user_form})
 
 
-def login_view(request):
+def login_view(request: HttpRequest):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -31,6 +31,6 @@ def login_view(request):
     return render(request, "login.html", {"login_form": login_form})
 
 
-def logout_view(request):
+def logout_view(request: HttpRequest):
     logout(request)
     return redirect("cars_list")
