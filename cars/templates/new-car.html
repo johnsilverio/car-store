@@ -22,69 +22,69 @@
                 {% csrf_token %}
 
                 <div class="form-field">
-                    <label for="{{ new_car_form.model.id_for_label }}" required>Model</label>
-                    {{ new_car_form.model }}
+                    <label for="{{ form.model.id_for_label }}" required>Model</label>
+                    {{ form.model }}
 
-                    {% if new_car_form.model.errors %}
-                        <span class="field-error">{{ new_car_form.model.errors.0 }}</span>
+                    {% if form.model.errors %}
+                        <span class="field-error">{{ form.model.errors.0 }}</span>
                     {% endif %}
                 </div>
 
                 <div class="form-field">
-                    <label for="{{ new_car_form.brand.id_for_label }}" required>Brand</label>
-                    {{ new_car_form.brand }}
+                    <label for="{{ form.brand.id_for_label }}" required>Brand</label>
+                    {{ form.brand }}
 
-                    {% if new_car_form.brand.errors %}
-                        <span class="field-error">{{ new_car_form.brand.errors.0 }}</span>
+                    {% if form.brand.errors %}
+                        <span class="field-error">{{ form.brand.errors.0 }}</span>
                     {% endif %}
                 </div>
 
                 <div class="form-row">
                     <div class="form-field">
-                        <label for="{{ new_car_form.factory_year.id_for_label }}">Factory year</label>
-                        {{ new_car_form.factory_year }}
+                        <label for="{{ form.factory_year.id_for_label }}">Factory year</label>
+                        {{ form.factory_year }}
 
-                        {% if new_car_form.factory_year.errors %}
-                            <span class="field-error">{{ new_car_form.factory_year.errors.0 }}</span>
+                        {% if form.factory_year.errors %}
+                            <span class="field-error">{{ form.factory_year.errors.0 }}</span>
                         {% endif %}
                     </div>
 
                     <div class="form-field">
-                        <label for="{{ new_car_form.model_year.id_for_label }}">Model year</label>
-                        {{ new_car_form.model_year }}
+                        <label for="{{ form.model_year.id_for_label }}">Model year</label>
+                        {{ form.model_year }}
 
-                        {% if new_car_form.model_year.errors %}
-                            <span class="field-error">{{ new_car_form.model_year.errors.0 }}</span>
+                        {% if form.model_year.errors %}
+                            <span class="field-error">{{ form.model_year.errors.0 }}</span>
                         {% endif %}
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-field">
-                        <label for="{{ new_car_form.plate.id_for_label }}">Plate</label>
-                        {{ new_car_form.plate }}
+                        <label for="{{ form.plate.id_for_label }}">Plate</label>
+                        {{ form.plate }}
 
-                        {% if new_car_form.plate.errors %}
-                            <span class="field-error">{{ new_car_form.plate.errors.0 }}</span>
+                        {% if form.plate.errors %}
+                            <span class="field-error">{{ form.plate.errors.0 }}</span>
                         {% endif %}
                     </div>
 
                     <div class="form-field">
-                        <label for="{{ new_car_form.value.id_for_label }}">Value (R$)</label>
-                        {{ new_car_form.value }}
+                        <label for="{{ form.value.id_for_label }}">Value (R$)</label>
+                        {{ form.value }}
 
-                        {% if new_car_form.value.errors %}
-                            <span class="field-error">{{ new_car_form.value.errors.0 }}</span>
+                        {% if form.value.errors %}
+                            <span class="field-error">{{ form.value.errors.0 }}</span>
                         {% endif %}
                     </div>
                 </div>
 
                 <div class="form-field">
-                    <label for="{{ new_car_form.photo.id_for_label }}">Photo</label>
-                    {{ new_car_form.photo }}
+                    <label for="{{ form.photo.id_for_label }}">Photo</label>
+                    {{ form.photo }}
 
-                    {% if new_car_form.photo.errors %}
-                        <span class="field-error">{{ new_car_form.photo.errors.0 }}</span>
+                    {% if form.photo.errors %}
+                        <span class="field-error">{{ form.photo.errors.0 }}</span>
                     {% endif %}
                 </div>
 
