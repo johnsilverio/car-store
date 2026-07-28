@@ -55,3 +55,7 @@
     font-size: 14px;
 }
 
+a {
+    list-style: none;
+    text-decoration: none;
+}

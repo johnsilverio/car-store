@@ -1,0 +1,89 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Edit {{ car.model }} - Car Store</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <link rel="stylesheet" href="{% static 'form.css' %}" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        {% include "header.html" %}
+        <main class="page-content">
+            <h1 class="page-title">Edit {{ car.model }}</h1>
+
+            <form class="car-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-field">
+                    <label for="{{ form.model.id_for_label }}">Model</label>
+                    {{ form.model }}
+                    {% if form.model.errors %}
+                        <span class="field-error">{{ form.model.errors.0 }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.brand.id_for_label }}">Brand</label>
+                    {{ form.brand }}
+                    {% if form.brand.errors %}
+                        <span class="field-error">{{ form.brand.errors.0 }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="{{ form.factory_year.id_for_label }}">Factory year</label>
+                        {{ form.factory_year }}
+                        {% if form.factory_year.errors %}
+                            <span class="field-error">{{ form.factory_year.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.model_year.id_for_label }}">Model year</label>
+                        {{ form.model_year }}
+                        {% if form.model_year.errors %}
+                            <span class="field-error">{{ form.model_year.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="{{ form.plate.id_for_label }}">Plate</label>
+                        {{ form.plate }}
+                        {% if form.plate.errors %}
+                            <span class="field-error">{{ form.plate.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-field">
+                        <label for="{{ form.value.id_for_label }}">Value (R$)</label>
+                        {{ form.value }}
+                        {% if form.value.errors %}
+                            <span class="field-error">{{ form.value.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.photo.id_for_label }}">Photo</label>
+                    {{ form.photo }}
+                    {% if form.photo.errors %}
+                        <span class="field-error">{{ form.photo.errors.0 }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="form-actions">
+                    <button class="button" type="submit">Save changes</button>
+                    <a class="button button-secondary" href="{% url 'car_detail' form.instance.pk %}">Cancel</a>
+                </div>
+            </form>
+        </main>
+        {% include "footer.html" %}
+    </body>
+</html>

@@ -1,0 +1,72 @@
+/* car-delete.css */
+
+.delete-container {
+    max-width: 480px;
+    margin: 40px auto;
+    background: var(--gray-2);
+    border: 1px solid var(--gray-4);
+    border-radius: var(--radius-4);
+    padding: 32px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-icon {
+    /* Using the existing red error color from your field-error class */
+    color: #f16565;
+    margin-bottom: 16px;
+    background: rgba(241, 101, 101, 0.1);
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gray-12);
+    margin: 0 0 8px 0;
+}
+
+.delete-description {
+    font-size: 14px;
+    color: var(--gray-11);
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+}
+
+/* Modifier for destructive actions extending your base .button */
+.button-danger {
+    background: #f16565;
+    color: #fff;
+}
+
+.button-danger:hover {
+    background: #d9534f;
+}
+
+.delete-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+}
+
+.delete-actions .button {
+    flex: 1;
+    max-width: 160px;
+}
+
+@media (max-width: 640px) {
+    .delete-actions {
+        flex-direction: column;
+    }
+
+    .delete-actions .button {
+        max-width: 100%;
+    }
+}

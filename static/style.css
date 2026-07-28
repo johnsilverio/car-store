@@ -167,6 +167,9 @@ body {
 }
 
 .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     height: 40px;
     padding: 0 22px;
     border: none;
@@ -176,17 +179,23 @@ body {
     font-size: 14px;
     font-weight: 600;
     font-family: inherit;
+    text-decoration: none;
     cursor: pointer;
     transition: background 0.15s ease;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
 }
 
 .button:hover {
     background: var(--accent-10);
+}
+
+.button-secondary {
+    background: transparent;
+    border: 1px solid var(--gray-7);
+    color: var(--gray-12);
+}
+
+.button-secondary:hover {
+    background: var(--gray-4);
 }
 
 .search-input {

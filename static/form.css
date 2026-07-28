@@ -129,4 +129,53 @@
     .car-card {
         max-width: 100%;
     }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .button {
+        width: 100%;
+    }
+}
+
+.file-current {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.file-current a {
+    color: var(--accent-9);
+}
+
+.file-clear {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.file-clear input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.file-clear label {
+    font-size: 13px;
+    color: var(--gray-11);
+    margin: 0;
+}
+
+.file-new {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-new-label {
+    font-size: 13px;
+    color: var(--gray-11);
 }

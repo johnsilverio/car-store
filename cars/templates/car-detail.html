@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{{ car.model }} - Car Store</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <link rel="stylesheet" href="{% static 'car-detail.css' %}" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        {% include "header.html" %}
+        <main class="page-content">
+            <a class="back-link" href="{% url 'cars_list' %}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to list
+            </a>
+
+            <div class="car-detail">
+                <div class="car-detail-photo">
+                    {% if car.photo %}
+                    <img src="{{ car.photo.url }}" alt="{{ car.model }} photo" />
+                    {% else %}
+                    <img
+                        src="https://www.motorsworld.co.uk/assets/no-image.jpg"
+                        alt="No photo available"
+                    />
+                    {% endif %}
+                </div>
+
+                <div class="car-detail-info">
+                    <h1>{{ car.model }}</h1>
+                    <p class="car-detail-value">R$ {{ car.value }}</p>
+
+                    <dl class="car-detail-specs">
+                        <div class="spec-row">
+                            <dt>Brand</dt>
+                            <dd>{{ car.brand }}</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Factory year</dt>
+                            <dd>{{ car.factory_year|default:"—" }}</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Model year</dt>
+                            <dd>{{ car.model_year|default:"—" }}</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Plate</dt>
+                            <dd>{{ car.plate|default:"—" }}</dd>
+                        </div>
+                    </dl>
+                    {% if user.is_authenticated %}
+                    <div class="car-detail-actions">
+                        <a class="button" href="{% url 'car_update' car.pk %}">Edit</a>
+                        <a class="button button-danger" href="{% url 'car_delete' car.pk %}">Delete</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+        {% include "footer.html" %}
+    </body>
+</html>
