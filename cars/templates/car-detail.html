@@ -55,6 +55,10 @@
                             <dt>Plate</dt>
                             <dd>{{ car.plate|default:"—" }}</dd>
                         </div>
+                        <div class="spec-row">
+                            <dt>Description</dt>
+                            <dd>{{ car.description|default:"—" }}</dd>
+                        </div>
                     </dl>
                     {% if user.is_authenticated %}
                     <div class="car-detail-actions">

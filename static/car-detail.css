@@ -67,6 +67,7 @@
     justify-content: space-between;
     padding: 10px 0;
     border-top: 1px solid var(--gray-4);
+    gap: 20px;
 }
 
 .spec-row dt {
